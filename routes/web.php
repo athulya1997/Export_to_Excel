@@ -20,6 +20,7 @@ Route::get('edit-student/{id}',[StudentController::class,'edit']);
 Route::post('update-student',[StudentController::class,'update']);
 Route::delete('delete-student',[StudentController::class,'destroy']);
 Route::get('export-excel',[StudentController::class,'exportToExcel']);
+Route::get('export-pdf',[StudentController::class,'exportToPDF']);
 Route::get('/', function () {
     return view('welcome');
 });

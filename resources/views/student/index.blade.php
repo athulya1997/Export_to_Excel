@@ -118,11 +118,18 @@
                         Student Data
                         <button type="button" class="btn btn-primary float-end" data-toggle="modal" data-target="#exampleModal">Add Student</a>
                     </h4>
-                    <div class="col-md-6">
+                    <div class="row">
+                    <div class="col-md-2">
                         <a href="{{url('export-excel')}}" class="btn btn-sm btn-success">
                           <i class="fas fa-check"></i>Export To Excel
                         </a>
                     </div>
+                    <div class="col-md-2">
+                        <a href="{{url('export-pdf')}}" class="btn btn-sm btn-danger">
+                          <i class="fas fa-check"></i>Export To PDF
+                        </a>
+                    </div>
+</div>
 
                 </div>
                 <div class="card-body">

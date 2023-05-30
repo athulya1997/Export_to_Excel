@@ -5,6 +5,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Exports\StudentExport;
 use Excel;
+use PDF;
 class StudentController extends Controller
 {
     public function index(){
@@ -13,6 +14,11 @@ class StudentController extends Controller
     }
     public function exportToExcel(){
         return Excel::download(new StudentExport,'student-excel.xlsx');
+    }
+    public function exportToPDF(){
+        $student = Student::all();
+        $pdf = PDF::loadview('student.index',compact('student'));
+        return $pdf->download('student-list.pdf');
     }
     public function store(Request $request){
         $student = new Student;
