@@ -5,6 +5,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Exports\StudentExport;
 use Excel;
+// use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
 class StudentController extends Controller
 {
@@ -15,9 +16,14 @@ class StudentController extends Controller
     public function exportToExcel(){
         return Excel::download(new StudentExport,'student-excel.xlsx');
     }
+    // public function exportToPDF(){
+    //     $student = Student::get()->toArray();
+    //     $pdf = PDF::loadview()
+    // }
     public function exportToPDF(){
-        $student = Student::all();
-        $pdf = PDF::loadview('student.index',compact('student'));
+        $student = Student::get();
+        // $student = Student::all();
+        $pdf = PDF::loadview('student.invoice',['student'=>$student]);
         return $pdf->download('student-list.pdf');
     }
     public function store(Request $request){

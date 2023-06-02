@@ -11,7 +11,7 @@
         </button>
       </div>
 
-    <form action="{{url('add-student')}}" method="POST">
+    <form action="{{url('add-student')}}" method="POST" id="user-id">
         @csrf
       <div class="modal-body">
             <div class="form-group mb-3">
